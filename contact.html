@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact WooWheel – Questions, Feedback & Support</title>
+<meta name="description" content="Get in touch with the WooWheel team for questions, feedback, bug reports, or partnership enquiries about our free online spin wheel tool.">
+<link rel="canonical" href="https://woowheel.com/contact.html">
+<meta name="theme-color" content="#150E29">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.contact-form{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+.contact-form label{font-size:.85rem;font-weight:600;color:var(--text-dim);margin-bottom:6px;display:block;}
+.contact-form input, .contact-form textarea{
+  width:100%;background:var(--surface-2);border:1px solid var(--line);color:var(--text);
+  padding:11px 13px;border-radius:var(--radius-sm);font-size:.92rem;font-family:'Inter',sans-serif;
+}
+.contact-form textarea{min-height:120px;resize:vertical;}
+.contact-form button{
+  align-self:flex-start;background:var(--gold);color:#2a1a02;border:none;font-weight:700;
+  padding:12px 22px;border-radius:999px;font-size:.92rem;
+}
+.form-note{color:var(--text-faint);font-size:.78rem;margin-top:6px;}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html"><span class="brand-dot"></span><span class="brand-word">WooWheel</span></a>
+  <a class="nav-back" href="index.html">← Back to the wheel</a>
+</nav>
+
+<main class="wrap">
+  <div class="page-hero">
+    <span class="eyebrow">Contact us</span>
+    <h1>We'd like to hear from you</h1>
+    <p class="lede">Found a bug, have a feature idea, or want to ask about advertising or partnerships? Send us a message.</p>
+  </div>
+
+  <div class="prose">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="ic">✉️</span>
+        <strong>Email us directly</strong>
+        <div><a href="mailto:hello@woowheel.com">hello@woowheel.com</a></div>
+      </div>
+      <div class="contact-card">
+        <span class="ic">⏱️</span>
+        <strong>Response time</strong>
+        <div style="color:var(--text-dim);margin-top:6px;">Usually within 2–3 business days</div>
+      </div>
+    </div>
+
+    <section style="margin-top:36px;">
+      <div class="card">
+        <h2 style="margin-bottom:16px;">Send a message</h2>
+        <form class="contact-form" action="mailto:hello@woowheel.com" method="post" enctype="text/plain">
+          <div>
+            <label for="cf-name">Your name</label>
+            <input type="text" id="cf-name" name="name" required>
+          </div>
+          <div>
+            <label for="cf-email">Your email</label>
+            <input type="email" id="cf-email" name="email" required>
+          </div>
+          <div>
+            <label for="cf-subject">Subject</label>
+            <input type="text" id="cf-subject" name="subject" placeholder="Bug report, feature idea, partnership…">
+          </div>
+          <div>
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" required></textarea>
+          </div>
+          <button type="submit">Send message</button>
+          <p class="form-note">This opens your email app with the details filled in — we don't store anything you type here.</p>
+        </form>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="max-width:1180px;">
+    <div class="brand" style="justify-content:center;"><span class="brand-dot"></span><span class="brand-word">WooWheel</span></div>
+    <p>A free spin wheel, random picker, and decision maker for everyone.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Free Spin Wheel Online – Random Name Picker & Decision Wheel Maker | WooWheel</title>
+<meta name="description" content="Spin the wheel free, right in your browser. Build a custom random picker for names, decisions, raffles, giveaways, and classroom games. No sign-up, works on mobile, tablet, and desktop.">
+<meta name="keywords" content="spin wheel, wheel spinner, random name picker, decision wheel, wheel of names, random picker online, spin the wheel game, wheel decide, raffle wheel, prize wheel, yes or no wheel">
+<link rel="canonical" href="https://woowheel.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WooWheel – Free Online Spin Wheel & Random Picker">
+<meta property="og:description" content="Type your options, spin the wheel, get a random winner. Free, fast, and mobile-friendly – no sign-up needed.">
+<meta property="og:url" content="https://woowheel.com/">
+<meta property="og:site_name" content="WooWheel">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WooWheel – Free Online Spin Wheel & Random Picker">
+<meta name="twitter:description" content="Type your options, spin the wheel, get a random winner. Free, fast, and mobile-friendly.">
+<meta name="theme-color" content="#FBF8F2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "WooWheel",
+  "url": "https://woowheel.com/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A free online spin wheel and random picker for names, decisions, raffles, giveaways, and classroom games.",
+  "browserRequirements": "Requires JavaScript"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is WooWheel free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. WooWheel is completely free, has no sign-up, and runs entirely in your browser."}},
+    {"@type": "Question", "name": "How does the spin wheel pick a random winner?", "acceptedAnswer": {"@type": "Answer", "text": "Each spin uses your device's random number generator to choose a stopping angle, so every option has a genuinely fair chance unless you set custom odds."}},
+    {"@type": "Question", "name": "Can I use the wheel on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the wheel resizes automatically for mobile, tablet, and desktop screens and works with tap or click."}},
+    {"@type": "Question", "name": "Can I give some options a better chance of winning?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, turn on custom odds to set a weight for each option, so some segments are more or less likely to be picked."}},
+    {"@type": "Question", "name": "Can I save my wheel and use it again later?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, name your wheel and save it. It stays in your browser so you can reopen it any time."}},
+    {"@type": "Question", "name": "Can I share my wheel with someone else?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, use the share link button to generate a link that opens your exact wheel for anyone you send it to."}}
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#FBF8F2;
+  --bg-soft:#FFFFFF;
+  --surface:#FFFFFF;
+  --surface-2:#F1ECFB;
+  --line:#E3DAF7;
+  --gold:#FFC145;
+  --gold-dim:#8A6A22;
+  --coral:#FF6B6A;
+  --teal:#3FCBB0;
+  --violet:#9D7BFF;
+  --rose:#FF8FA3;
+  --sky:#5BC4FF;
+  --text:#231A3F;
+  --text-dim:#5B5081;
+  --text-faint:#8A7FB0;
+  --radius-lg:22px;
+  --radius-md:14px;
+  --radius-sm:9px;
+  --shadow-deep:0 30px 60px -25px rgba(80,60,140,.25);
+}
+[data-theme="dark"]{
+  --bg:#150E29;
+  --bg-soft:#1B1333;
+  --surface:#1F1640;
+  --surface-2:#2A1E54;
+  --line:#3A2C6E;
+  --text:#F5F1FF;
+  --text-dim:#B9AEDD;
+  --text-faint:#7C71A6;
+  --shadow-deep:0 30px 60px -20px rgba(5,2,20,.65);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+  transition:background .4s ease,color .4s ease;
+}
+[data-theme="dark"] body{background:radial-gradient(1100px 700px at 15% -10%, #241A4A 0%, var(--bg) 55%), var(--bg);}
+h1,h2,h3,.brand-word{font-family:'Fredoka',sans-serif;}
+a{color:inherit;}
+button{font-family:'Inter',sans-serif;cursor:pointer;border:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+
+/* ---------- NAV ---------- */
+.site-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 24px;max-width:1180px;margin:0 auto;
+}
+.brand{display:flex;align-items:center;gap:10px;font-size:1.35rem;font-weight:700;letter-spacing:.2px;}
+.brand-dot{width:14px;height:14px;border-radius:50%;background:conic-gradient(var(--gold),var(--coral),var(--teal),var(--violet),var(--gold));box-shadow:0 0 0 3px rgba(255,193,69,.18);}
+.nav-actions{display:flex;gap:10px;align-items:center;}
+.icon-btn{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text);font-size:1.05rem;transition:transform .15s ease,background .2s ease;
+}
+.icon-btn:hover{transform:translateY(-2px);background:var(--surface-2);}
+.icon-btn:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline:2.5px solid var(--gold);outline-offset:2px;
+}
+
+/* ---------- HERO ---------- */
+.hero{padding:18px 0 60px;}
+.hero-head{text-align:center;max-width:680px;margin:0 auto 42px;padding:0 12px;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);background:rgba(255,193,69,.1);
+  border:1px solid rgba(255,193,69,.3);padding:6px 14px;border-radius:999px;margin-bottom:18px;
+}
+.hero-head h1{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:700;line-height:1.08;letter-spacing:-.01em;margin-bottom:6px;}
+.hero-head h1 span{color:var(--gold);}
+.hero-head p{margin-top:16px;color:var(--text-dim);font-size:1.08rem;max-width:560px;margin-left:auto;margin-right:auto;}
+
+.studio{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start;
+}
+@media(max-width:900px){.studio{grid-template-columns:1fr;}}
+
+/* ---------- WHEEL STAGE ---------- */
+.stage{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:30px 24px 26px;box-shadow:var(--shadow-deep);
+  display:flex;flex-direction:column;align-items:center;position:relative;
+}
+.stage-topline{
+  display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:6px;gap:10px;flex-wrap:wrap;
+}
+.template-select{
+  background:var(--surface-2);color:var(--text);border:1px solid var(--line);
+  border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:600;
+}
+.stage-tools{display:flex;gap:8px;}
+.pill-btn{
+  background:var(--surface-2);color:var(--text-dim);border:1px solid var(--line);
+  border-radius:999px;padding:8px 12px;font-size:.82rem;font-weight:600;
+  display:flex;align-items:center;gap:6px;transition:.2s;
+}
+.pill-btn:hover{color:var(--text);border-color:var(--gold);}
+.pill-btn.active{color:var(--bg);background:var(--gold);border-color:var(--gold);}
+
+.wheel-area{position:relative;width:min(420px,100%);aspect-ratio:1/1;margin:18px auto 8px;}
+.pointer-flap{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  width:46px;height:56px;z-index:5;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
+  transform-origin:50% 8px;
+}
+.pointer-flap.tick{animation:flapTick .11s ease;}
+@keyframes flapTick{0%{transform:translateX(-50%) rotate(0deg);}45%{transform:translateX(-50%) rotate(16deg);}100%{transform:translateX(-50%) rotate(0deg);}}
+canvas#wheelCanvas{width:100%;height:100%;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.4));}
+canvas#confettiCanvas{position:absolute;inset:-40px;pointer-events:none;z-index:8;width:calc(100% + 80px);height:calc(100% + 80px);}
+
+.spin-btn{
+  margin-top:14px;width:min(220px,72%);padding:16px 20px;border-radius:999px;
+  background:linear-gradient(135deg,var(--coral),#ff8b5a);color:#2a0d05;font-weight:700;font-size:1.05rem;
+  letter-spacing:.02em;box-shadow:0 12px 26px -8px rgba(255,107,106,.6);transition:transform .15s ease, box-shadow .2s ease;
+}
+.spin-btn:hover{transform:translateY(-2px);}
+.spin-btn:disabled{opacity:.55;cursor:not-allowed;transform:none;}
+.spin-hint{margin-top:10px;color:var(--text-faint);font-size:.78rem;font-family:'JetBrains Mono',monospace;}
+
+/* ---------- CONTROL PANEL ---------- */
+.panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:26px 24px;box-shadow:var(--shadow-deep);display:flex;flex-direction:column;gap:18px;
+}
+.panel h2{font-size:1.05rem;font-weight:600;display:flex;align-items:center;justify-content:space-between;}
+.panel h2 small{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.72rem;color:var(--text-faint);}
+.option-list{display:flex;flex-direction:column;gap:8px;max-height:290px;overflow-y:auto;padding-right:4px;}
+.option-list::-webkit-scrollbar{width:6px;}
+.option-list::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px;}
+.option-row{display:flex;align-items:center;gap:8px;}
+.swatch{
+  width:22px;height:22px;border-radius:50%;flex:0 0 auto;border:2px solid rgba(255,255,255,.25);cursor:pointer;padding:0;
+}
+.option-row input[type="text"]{
+  flex:1;min-width:0;background:var(--surface-2);border:1px solid var(--line);color:var(--text);
+  padding:9px 12px;border-radius:var(--radius-sm);font-size:.92rem;
+}
+.option-row input[type="number"]{
+  width:52px;background:var(--surface-2);border:1px solid var(--line);color:var(--text);
+  padding:9px 6px;border-radius:var(--radius-sm);font-size:.85rem;text-align:center;
+}
+.row-remove{
+  width:30px;height:30px;border-radius:8px;background:transparent;color:var(--text-faint);font-size:1.1rem;flex:0 0 auto;
+}
+.row-remove:hover{color:var(--coral);background:rgba(255,107,106,.1);}
+.add-option{
+  border:1.5px dashed var(--line);border-radius:var(--radius-sm);padding:10px;
+  color:var(--text-dim);font-weight:600;font-size:.88rem;background:transparent;
+}
+.add-option:hover{border-color:var(--gold);color:var(--gold);}
+
+.toggle-grid{display:flex;flex-direction:column;gap:10px;}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.toggle-row span{font-size:.88rem;color:var(--text-dim);}
+.switch{position:relative;width:44px;height:24px;flex:0 0 auto;}
+.switch input{opacity:0;width:100%;height:100%;position:absolute;margin:0;cursor:pointer;}
+.switch .track{position:absolute;inset:0;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;transition:.2s;}
+.switch .thumb{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--text-faint);transition:.2s;}
+.switch input:checked + .track{background:var(--gold);border-color:var(--gold);}
+.switch input:checked ~ .thumb{transform:translateX(20px);background:#2a1a02;}
+
+.duration-row{display:flex;gap:8px;}
+.duration-row button{
+  flex:1;padding:9px 6px;border-radius:var(--radius-sm);background:var(--surface-2);
+  color:var(--text-dim);border:1px solid var(--line);font-size:.82rem;font-weight:600;
+}
+.duration-row button.active{background:var(--violet);border-color:var(--violet);color:#fff;}
+
+.panel-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.panel-actions button, .save-row button{
+  padding:10px 8px;border-radius:var(--radius-sm);background:var(--surface-2);color:var(--text);
+  border:1px solid var(--line);font-size:.82rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.panel-actions button:hover, .save-row button:hover{border-color:var(--gold);color:var(--gold);}
+.save-row{display:flex;gap:8px;}
+.save-row input{
+  flex:1;background:var(--surface-2);border:1px solid var(--line);color:var(--text);
+  padding:9px 12px;border-radius:var(--radius-sm);font-size:.85rem;
+}
+.saved-list{display:flex;flex-direction:column;gap:6px;max-height:120px;overflow-y:auto;}
+.saved-item{
+  display:flex;align-items:center;justify-content:space-between;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:var(--radius-sm);padding:8px 10px;font-size:.82rem;
+}
+.saved-item button{background:transparent;color:var(--text-faint);font-size:.95rem;}
+.saved-item button:hover{color:var(--coral);}
+.saved-item .load-name{cursor:pointer;font-weight:600;}
+.saved-item .load-name:hover{color:var(--gold);}
+
+/* ---------- RESULT MODAL ---------- */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(9,5,22,.72);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center;z-index:50;padding:20px;
+}
+.modal-backdrop.show{display:flex;}
+.modal-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:36px 30px;max-width:420px;width:100%;text-align:center;box-shadow:var(--shadow-deep);
+  animation:pop .25s cubic-bezier(.2,1.4,.4,1);
+}
+@keyframes pop{from{transform:scale(.85);opacity:0;}to{transform:scale(1);opacity:1;}}
+.modal-card .eyebrow{margin-bottom:10px;}
+.modal-card h3{font-size:1.9rem;word-break:break-word;margin:6px 0 20px;}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.modal-actions button{
+  padding:10px 16px;border-radius:999px;font-weight:600;font-size:.86rem;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--text);
+}
+.modal-actions .primary{background:var(--gold);color:#2a1a02;border-color:var(--gold);}
+.modal-actions button:hover{transform:translateY(-1px);}
+.embed-code{
+  text-align:left;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:12px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text-dim);
+  max-height:120px;overflow:auto;margin-top:12px;white-space:pre-wrap;word-break:break-all;
+}
+
+/* ---------- CONTENT SECTIONS ---------- */
+.content-section{padding:70px 0;border-top:1px solid var(--line);}
+.section-head{max-width:620px;margin:0 auto 40px;text-align:center;}
+.section-head .eyebrow{margin-bottom:14px;}
+.section-head h2{font-size:clamp(1.5rem,3vw,2.1rem);}
+.section-head p{color:var(--text-dim);margin-top:10px;}
+
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+@media(max-width:800px){.steps-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.steps-grid{grid-template-columns:1fr;}}
+.step-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:22px 18px;position:relative;
+}
+.step-num{
+  font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.6rem;color:var(--gold);
+  display:block;margin-bottom:10px;
+}
+.step-card h3{font-size:1rem;margin-bottom:6px;}
+.step-card p{color:var(--text-dim);font-size:.88rem;}
+
+.usecase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:900px){.usecase-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.usecase-grid{grid-template-columns:1fr;}}
+.usecase-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:22px 20px;transition:.2s;
+}
+.usecase-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+.usecase-emoji{font-size:1.6rem;margin-bottom:10px;display:block;}
+.usecase-card h3{font-size:1rem;margin-bottom:6px;}
+.usecase-card p{color:var(--text-dim);font-size:.87rem;}
+
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:800px){.feature-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.feature-grid{grid-template-columns:1fr;}}
+.feature-item{
+  display:flex;align-items:flex-start;gap:10px;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-md);padding:16px;font-size:.88rem;color:var(--text-dim);
+}
+.feature-item .tick{color:var(--teal);font-weight:700;flex:0 0 auto;}
+
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.faq-q{
+  width:100%;text-align:left;background:transparent;color:var(--text);padding:16px 18px;
+  display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:.94rem;
+}
+.faq-q .plus{color:var(--gold);font-size:1.2rem;transition:transform .2s;flex:0 0 auto;margin-left:12px;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+.faq-a p{padding:0 18px 16px;color:var(--text-dim);font-size:.88rem;}
+
+footer{padding:40px 0 60px;text-align:center;color:var(--text-faint);font-size:.82rem;}
+footer .brand{justify-content:center;margin-bottom:10px;}
+.footer-links{display:flex;gap:16px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.footer-links a{color:var(--text-dim);text-decoration:none;}
+.footer-links a:hover{color:var(--gold);}
+
+/* ---------- MOBILE PASS ---------- */
+@media(max-width:480px){
+  .wrap{padding:0 16px;}
+  .site-nav{padding:16px 16px;}
+  .brand{font-size:1.15rem;}
+  .icon-btn{width:38px;height:38px;font-size:.95rem;}
+  .hero{padding:10px 0 40px;}
+  .hero-head{margin-bottom:26px;padding:0 4px;}
+  .eyebrow{font-size:.62rem;padding:5px 11px;white-space:normal;text-align:center;}
+  .stage{padding:20px 14px 20px;border-radius:18px;}
+  .panel{padding:20px 16px;border-radius:18px;}
+  .wheel-area{width:min(300px,88vw);margin:14px auto 6px;}
+  .pointer-flap{width:38px;height:46px;top:-11px;}
+  .spin-btn{width:88%;padding:15px 16px;font-size:1rem;}
+  .template-select{font-size:.8rem;padding:7px 12px;max-width:100%;}
+  .swatch{width:28px;height:28px;}
+  .row-remove{width:34px;height:34px;}
+  .option-row input[type="number"]{width:44px;}
+  .panel-actions{grid-template-columns:1fr 1fr;gap:8px;}
+  .panel-actions button, .save-row button{font-size:.78rem;padding:11px 6px;}
+  .content-section{padding:44px 0;}
+  .section-head{margin-bottom:28px;padding:0 4px;}
+  .modal-card{padding:26px 20px;}
+}
+/* Prevent iOS Safari from auto-zooming when focusing form fields */
+input, textarea, select{font-size:16px;}
+.option-row input[type="text"],
+.option-row input[type="number"],
+.save-row input,
+.template-select{font-size:16px;}
+@media(max-width:480px){
+  .option-row input[type="text"]{font-size:15px;}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+}
+.fullscreen-mode{position:fixed;inset:0;z-index:80;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px;}
+.fullscreen-mode .stage{width:min(600px,92vw);}
+.fs-exit{position:fixed;top:18px;right:18px;z-index:81;}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="brand"><span class="brand-dot"></span><span class="brand-word">WooWheel</span></div>
+  <div class="nav-actions">
+    <button class="icon-btn" id="muteBtn" title="Toggle sound" aria-label="Toggle sound">🔊</button>
+    <button class="icon-btn" id="themeBtn" title="Toggle light/dark" aria-label="Toggle theme">🌙</button>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-head">
+      <span class="eyebrow">● Free · No Sign-up · Works Offline</span>
+      <h1>Spin the wheel.<br>Let <span>WooWheel</span> decide.</h1>
+    </div>
+
+    <div class="studio">
+      <!-- WHEEL STAGE -->
+      <div class="stage" id="stageEl">
+        <div class="stage-topline">
+          <select class="template-select" id="templateSelect" aria-label="Load a template">
+            <option value="">Load a template…</option>
+          </select>
+          <div class="stage-tools">
+            <button class="pill-btn" id="fullscreenBtn">⛶ Present</button>
+          </div>
+        </div>
+
+        <div class="wheel-area" id="wheelArea">
+          <svg class="pointer-flap" id="pointerFlap" viewBox="0 0 46 56" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23 2C12 2 6 10 6 18c0 10 17 34 17 34s17-24 17-34C40 10 34 2 23 2Z" fill="#FF6B6A" stroke="#2a0d05" stroke-width="2"/>
+            <circle cx="23" cy="18" r="6" fill="#2a0d05"/>
+          </svg>
+          <canvas id="wheelCanvas" width="600" height="600" role="img" aria-label="Spin wheel with your options"></canvas>
+          <canvas id="confettiCanvas"></canvas>
+        </div>
+
+        <button class="spin-btn" id="spinBtn">SPIN THE WHEEL</button>
+        <span class="spin-hint">or press space bar</span>
+      </div>
+
+      <!-- CONTROL PANEL -->
+      <div class="panel">
+        <div>
+          <h2>Your options <small id="optionCount">0 options</small></h2>
+          <div class="option-list" id="optionList"></div>
+          <button class="add-option" id="addOptionBtn" style="margin-top:8px;width:100%;">+ Add option</button>
+        </div>
+
+        <div class="toggle-grid">
+          <div class="toggle-row">
+            <span>Custom odds (weighted)</span>
+            <label class="switch"><input type="checkbox" id="weightToggle"><span class="track"></span><span class="thumb"></span></label>
+          </div>
+          <div class="toggle-row">
+            <span>Remove winner after spin</span>
+            <label class="switch"><input type="checkbox" id="removeToggle"><span class="track"></span><span class="thumb"></span></label>
+          </div>
+          <div class="toggle-row">
+            <span>Confetti on winner</span>
+            <label class="switch"><input type="checkbox" id="confettiToggle" checked><span class="track"></span><span class="thumb"></span></label>
+          </div>
+        </div>
+
+        <div>
+          <h2 style="margin-bottom:8px;">Spin speed</h2>
+          <div class="duration-row" id="durationRow">
+            <button data-dur="4000">Quick</button>
+            <button data-dur="7000" class="active">Normal</button>
+            <button data-dur="11000">Long</button>
+          </div>
+        </div>
+
+        <div class="panel-actions">
+          <button id="shareBtn">🔗 Share link</button>
+          <button id="downloadBtn">🖼️ Save image</button>
+          <button id="embedBtn">&lt;/&gt; Embed</button>
+          <button id="resetBtn">↺ Reset wheel</button>
+        </div>
+
+        <div>
+          <h2 style="margin-bottom:8px;">Save this wheel</h2>
+          <div class="save-row">
+            <input type="text" id="saveNameInput" placeholder="Name this wheel…">
+            <button id="saveWheelBtn">Save</button>
+          </div>
+          <div class="saved-list" id="savedList" style="margin-top:10px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT MODAL -->
+<div class="modal-backdrop" id="resultModal">
+  <div class="modal-card">
+    <span class="eyebrow">🎉 And the winner is</span>
+    <h3 id="resultText">—</h3>
+    <div class="modal-actions">
+      <button class="primary" id="spinAgainBtn">Spin again</button>
+      <button id="copyResultBtn">Copy result</button>
+      <button id="closeModalBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- EMBED MODAL -->
+<div class="modal-backdrop" id="embedModal">
+  <div class="modal-card" style="max-width:520px;">
+    <span class="eyebrow">Embed this wheel</span>
+    <h3 style="font-size:1.2rem;">Paste this on your own page</h3>
+    <div class="embed-code" id="embedCode"></div>
+    <div class="modal-actions" style="margin-top:16px;">
+      <button class="primary" id="copyEmbedBtn">Copy code</button>
+      <button id="closeEmbedBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="content-section" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From blank wheel to winner in four steps</h2>
+      <p>No account, no download, no waiting — the whole random name picker runs right here in your browser.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><span class="step-num">01</span><h3>Add your options</h3><p>Type names, tasks, or choices into the list. Add as many segments as you like.</p></div>
+      <div class="step-card"><span class="step-num">02</span><h3>Set the odds (optional)</h3><p>Leave every option equal, or turn on custom odds to weight the wheel.</p></div>
+      <div class="step-card"><span class="step-num">03</span><h3>Spin the wheel</h3><p>Tap Spin or hit space bar. Watch the pointer tick around until it settles.</p></div>
+      <div class="step-card"><span class="step-num">04</span><h3>Get your result</h3><p>See the winner instantly, share the link, or remove it and spin again.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="content-section" id="use-cases">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Popular uses</span>
+      <h2>One wheel, endless ways to use it</h2>
+      <p>WooWheel works as a decision wheel, raffle wheel, name picker, and more.</p>
+    </div>
+    <div class="usecase-grid">
+      <div class="usecase-card"><span class="usecase-emoji">🏫</span><h3>Classroom name picker</h3><p>Call on students fairly, assign group roles, or pick who goes first — no more raised-hand guessing.</p></div>
+      <div class="usecase-card"><span class="usecase-emoji">🎁</span><h3>Giveaways & raffles</h3><p>Run a live prize draw for streams, events, or social media giveaways with a visible, trustworthy spin.</p></div>
+      <div class="usecase-card"><span class="usecase-emoji">🧑‍🤝‍🧑</span><h3>Team & task picker</h3><p>Decide who takes the next task, who presents first, or who's on dish duty this week.</p></div>
+      <div class="usecase-card"><span class="usecase-emoji">🤔</span><h3>Yes, no, or maybe</h3><p>Stuck on a decision? Build a quick yes/no/maybe wheel and let chance break the tie.</p></div>
+      <div class="usecase-card"><span class="usecase-emoji">🎲</span><h3>Party games</h3><p>Truth or dare, drinking games, would-you-rather — load a template and start playing in seconds.</p></div>
+      <div class="usecase-card"><span class="usecase-emoji">🍜</span><h3>What to eat tonight</h3><p>List your usual restaurants or meals and let the wheel end the "I don't know, you pick" loop.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="content-section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Built-in features</span>
+      <h2>Everything a spin wheel tool should have</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-item"><span class="tick">✔</span>Works on mobile, tablet, and desktop</div>
+      <div class="feature-item"><span class="tick">✔</span>Unlimited custom options and colors</div>
+      <div class="feature-item"><span class="tick">✔</span>Optional weighted odds per segment</div>
+      <div class="feature-item"><span class="tick">✔</span>Remove winner after each spin</div>
+      <div class="feature-item"><span class="tick">✔</span>Save wheels in your browser</div>
+      <div class="feature-item"><span class="tick">✔</span>Shareable wheel links</div>
+      <div class="feature-item"><span class="tick">✔</span>Downloadable wheel image</div>
+      <div class="feature-item"><span class="tick">✔</span>Embed code for your own site</div>
+      <div class="feature-item"><span class="tick">✔</span>Sound and confetti, muteable</div>
+      <div class="feature-item"><span class="tick">✔</span>Full-screen presentation mode</div>
+      <div class="feature-item"><span class="tick">✔</span>Keyboard accessible (space to spin)</div>
+      <div class="feature-item"><span class="tick">✔</span>Light and dark themes</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="content-section" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions about the spin wheel</h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q">Is WooWheel really free? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. There's no sign-up, no paywall, and no limit on how many times you spin.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is each spin actually random and fair? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, unless you turn on custom odds. With equal odds on, every segment has exactly the same chance of winning.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I weight the wheel so some options win more often? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, switch on "Custom odds" and set a weight next to each option to make it more or less likely.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does my data get uploaded anywhere? <span class="plus">+</span></button>
+        <div class="faq-a"><p>No. Your wheel and saved presets stay in your own browser storage. Sharing a link is the only time your options travel anywhere, and only because you chose to share it.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I use this for a live giveaway or stream? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, use Present mode for a clean full-screen view your audience can watch, and confetti plus sound for a satisfying reveal.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I embed this wheel on my own website? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, the Embed button gives you a code snippet with your current wheel already loaded.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How many options can I add? <span class="plus">+</span></button>
+        <div class="faq-a"><p>There's no hard limit, though wheels stay easiest to read with somewhere between 2 and 30 segments.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><span class="brand-dot"></span><span class="brand-word">WooWheel</span></div>
+    <p>A free spin wheel, random picker, and decision maker for everyone.</p>
+    <div class="footer-links">
+      <a href="#how-it-works">How it works</a>
+      <a href="#use-cases">Use cases</a>
+      <a href="#faq">FAQ</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- STATE ---------------- */
+  const PALETTE = ["#FFC145","#FF6B6A","#3FCBB0","#9D7BFF","#FF8FA3","#5BC4FF","#F2A65A","#7AD97A"];
+  const TEMPLATES = {
+    "Yes or No": ["Yes","No"],
+    "Yes, No, Maybe": ["Yes","No","Maybe","Ask again"],
+    "Team Picker": ["Team A","Team B","Team C","Team D"],
+    "Truth or Dare": ["Truth","Dare"],
+    "Numbers 1-6": ["1","2","3","4","5","6"],
+    "What's for Dinner": ["Pizza","Sushi","Tacos","Burgers","Salad","Noodles"],
+    "Movie Genre": ["Comedy","Horror","Drama","Sci-Fi","Romance","Action"],
+    "Emoji Fun": ["🍕","🎮","🎬","⚽","🎧","📚"]
+  };
+
+  let options = load("woowheel_current", null) || defaultOptions();
+  let weighted = load("woowheel_weighted", false);
+  let removeAfterSpin = load("woowheel_remove", false);
+  let confettiOn = load("woowheel_confetti", true);
+  let muted = load("woowheel_muted", false);
+  let theme = load("woowheel_theme", "light");
+  let spinDuration = load("woowheel_duration", 7000);
+  let rotation = 0;
+  let spinning = false;
+
+  function defaultOptions(){
+    return ["Pizza","Tacos","Sushi","Burgers","Salad"].map((label,i)=>({
+      id: cryptoId(), label, color: PALETTE[i % PALETTE.length], weight: 1
+    }));
+  }
+  function cryptoId(){ return Math.random().toString(36).slice(2,10); }
+  function save(key,val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
+  function load(key,fallback){
+    try{ const v = localStorage.getItem(key); return v===null?fallback:JSON.parse(v); }catch(e){ return fallback; }
+  }
+
+  /* ---------------- DOM REFS ---------------- */
+  const optionList = document.getElementById('optionList');
+  const optionCount = document.getElementById('optionCount');
+  const addOptionBtn = document.getElementById('addOptionBtn');
+  const weightToggle = document.getElementById('weightToggle');
+  const removeToggle = document.getElementById('removeToggle');
+  const confettiToggle = document.getElementById('confettiToggle');
+  const durationRow = document.getElementById('durationRow');
+  const spinBtn = document.getElementById('spinBtn');
+  const canvas = document.getElementById('wheelCanvas');
+  const ctx = canvas.getContext('2d');
+  const confettiCanvas = document.getElementById('confettiCanvas');
+  const cctx = confettiCanvas.getContext('2d');
+  const pointerFlap = document.getElementById('pointerFlap');
+  const resultModal = document.getElementById('resultModal');
+  const resultText = document.getElementById('resultText');
+  const spinAgainBtn = document.getElementById('spinAgainBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const copyResultBtn = document.getElementById('copyResultBtn');
+  const templateSelect = document.getElementById('templateSelect');
+  const themeBtn = document.getElementById('themeBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const shareBtn = document.getElementById('shareBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const embedBtn = document.getElementById('embedBtn');
+  const embedModal = document.getElementById('embedModal');
+  const embedCode = document.getElementById('embedCode');
+  const copyEmbedBtn = document.getElementById('copyEmbedBtn');
+  const closeEmbedBtn = document.getElementById('closeEmbedBtn');
+  const saveNameInput = document.getElementById('saveNameInput');
+  const saveWheelBtn = document.getElementById('saveWheelBtn');
+  const savedList = document.getElementById('savedList');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const stageEl = document.getElementById('stageEl');
+
+  /* ---------------- TEMPLATES DROPDOWN ---------------- */
+  Object.keys(TEMPLATES).forEach(name=>{
+    const o = document.createElement('option'); o.value = name; o.textContent = name;
+    templateSelect.appendChild(o);
+  });
+  templateSelect.addEventListener('change', ()=>{
+    if(!templateSelect.value) return;
+    options = TEMPLATES[templateSelect.value].map((label,i)=>({id:cryptoId(),label,color:PALETTE[i%PALETTE.length],weight:1}));
+    templateSelect.value = "";
+    persistOptions(); renderOptionList(); drawWheel();
+  });
+
+  /* ---------------- OPTION LIST UI ---------------- */
+  function renderOptionList(){
+    optionList.innerHTML = "";
+    options.forEach((opt)=>{
+      const row = document.createElement('div');
+      row.className = 'option-row';
+
+      const swatch = document.createElement('input');
+      swatch.type = 'color'; swatch.className = 'swatch'; swatch.value = opt.color;
+      swatch.setAttribute('aria-label','Segment color for '+opt.label);
+      swatch.addEventListener('input', ()=>{ opt.color = swatch.value; persistOptions(); drawWheel(); });
+
+      const text = document.createElement('input');
+      text.type = 'text'; text.value = opt.label; text.setAttribute('aria-label','Option label');
+      text.addEventListener('input', ()=>{ opt.label = text.value; persistOptions(); drawWheel(); });
+
+      row.appendChild(swatch); row.appendChild(text);
+
+      if(weighted){
+        const w = document.createElement('input');
+        w.type = 'number'; w.min = '1'; w.max = '20'; w.value = opt.weight || 1;
+        w.setAttribute('aria-label','Weight for '+opt.label);
+        w.addEventListener('input', ()=>{ opt.weight = Math.max(1, parseInt(w.value)||1); persistOptions(); drawWheel(); });
+        row.appendChild(w);
+      }
+
+      const rm = document.createElement('button');
+      rm.className = 'row-remove'; rm.textContent = '×'; rm.setAttribute('aria-label','Remove '+opt.label);
+      rm.addEventListener('click', ()=>{
+        if(options.length <= 2){ return; }
+        options = options.filter(o=>o.id!==opt.id);
+        persistOptions(); renderOptionList(); drawWheel();
+      });
+      row.appendChild(rm);
+
+      optionList.appendChild(row);
+    });
+    optionCount.textContent = options.length + (options.length===1 ? ' option' : ' options');
+  }
+
+  addOptionBtn.addEventListener('click', ()=>{
+    options.push({id:cryptoId(), label:'New option', color: PALETTE[options.length % PALETTE.length], weight:1});
+    persistOptions(); renderOptionList(); drawWheel();
+  });
+
+  function persistOptions(){ save('woowheel_current', options); }
+
+  /* ---------------- TOGGLES ---------------- */
+  weightToggle.checked = weighted;
+  removeToggle.checked = removeAfterSpin;
+  confettiToggle.checked = confettiOn;
+  weightToggle.addEventListener('change', ()=>{ weighted = weightToggle.checked; save('woowheel_weighted', weighted); renderOptionList(); });
+  removeToggle.addEventListener('change', ()=>{ removeAfterSpin = removeToggle.checked; save('woowheel_remove', removeAfterSpin); });
+  confettiToggle.addEventListener('change', ()=>{ confettiOn = confettiToggle.checked; save('woowheel_confetti', confettiOn); });
+
+  durationRow.querySelectorAll('button').forEach(btn=>{
+    if(parseInt(btn.dataset.dur) === spinDuration) btn.classList.add('active');
+    btn.addEventListener('click', ()=>{
+      durationRow.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      spinDuration = parseInt(btn.dataset.dur);
+      save('woowheel_duration', spinDuration);
+    });
+  });
+
+  /* ---------------- THEME + SOUND TOGGLES ---------------- */
+  function applyTheme(){
+    document.documentElement.setAttribute('data-theme', theme);
+    themeBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
+    drawWheel();
+  }
+  themeBtn.addEventListener('click', ()=>{ theme = theme==='dark'?'light':'dark'; save('woowheel_theme', theme); applyTheme(); });
+  applyTheme();
+
+  function applyMute(){ muteBtn.textContent = muted ? '🔇' : '🔊'; }
+  muteBtn.addEventListener('click', ()=>{ muted = !muted; save('woowheel_muted', muted); applyMute(); });
+  applyMute();
+
+  /* ---------------- WHEEL DRAWING ---------------- */
+  function totalWeight(){ return options.reduce((s,o)=> s + (weighted ? (o.weight||1) : 1), 0); }
+
+  function drawWheel(rot){
+    rot = rot===undefined ? rotation : rot;
+    const size = canvas.width;
+    const cx = size/2, cy = size/2, r = size/2 - 14;
+    ctx.clearRect(0,0,size,size);
+
+    // outer marquee rim
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.beginPath(); ctx.arc(0,0,r+10,0,Math.PI*2);
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--surface-2').trim() || '#2A1E54';
+    ctx.fill();
+    const bulbCount = 24;
+    const t = Date.now()/220;
+    for(let i=0;i<bulbCount;i++){
+      const a = (i/bulbCount) * Math.PI*2;
+      const lit = spinning ? (i % 2 === Math.floor(t)%2) : (Math.floor(t + i/2) % bulbCount < bulbCount/2 && i % 3 === 0);
+      const bx = Math.cos(a) * (r+10), by = Math.sin(a) * (r+10);
+      ctx.beginPath(); ctx.arc(bx,by,4.2,0,Math.PI*2);
+      ctx.fillStyle = lit ? '#FFE49A' : 'rgba(255,255,255,.18)';
+      ctx.shadowColor = lit ? '#FFC145' : 'transparent';
+      ctx.shadowBlur = lit ? 8 : 0;
+      ctx.fill();
+    }
+    ctx.shadowBlur = 0;
+    ctx.restore();
+
+    // segments
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.rotate(rot);
+    const tw = totalWeight();
+    let start = -Math.PI/2;
+    options.forEach(opt=>{
+      const frac = (weighted ? (opt.weight||1) : 1) / tw;
+      const angle = frac * Math.PI*2;
+      ctx.beginPath();
+      ctx.moveTo(0,0);
+      ctx.arc(0,0,r,start,start+angle);
+      ctx.closePath();
+      ctx.fillStyle = opt.color;
+      ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(0,0,0,.18)'; ctx.stroke();
+
+      // label
+      ctx.save();
+      ctx.rotate(start + angle/2);
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#1B1130';
+      const fontSize = Math.max(13, Math.min(20, r/9));
+      ctx.font = '600 '+fontSize+'px Inter, sans-serif';
+      const label = opt.label.length > 18 ? opt.label.slice(0,16)+'…' : opt.label;
+      ctx.fillText(label, r - 18, 6);
+      ctx.restore();
+
+      start += angle;
+    });
+    // hub
+    ctx.beginPath(); ctx.arc(0,0,size*0.05,0,Math.PI*2);
+    ctx.fillStyle = '#FFC145'; ctx.fill();
+    ctx.lineWidth = 4; ctx.strokeStyle = '#2a1a02'; ctx.stroke();
+    ctx.restore();
+  }
+
+  let idleAnim;
+  const IDLE_SPEED = 0.00035; // slow ambient rotation, radians per ms
+  function startIdleGlow(){
+    cancelAnimationFrame(idleAnim);
+    let last = performance.now();
+    (function loop(now){
+      const dt = now - last; last = now;
+      if(!spinning){
+        rotation += IDLE_SPEED * dt;
+        drawWheel();
+      }
+      idleAnim = requestAnimationFrame(loop);
+    })(last);
+  }
+
+  /* ---------------- AUDIO ---------------- */
+  let audioCtx;
+  function ensureAudio(){ if(!audioCtx){ try{ audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } }
+  function tick(){
+    if(muted || !audioCtx) return;
+    const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
+    o.frequency.value = 720; o.type = 'square';
+    g.gain.setValueAtTime(0.06, audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.06);
+    o.connect(g); g.connect(audioCtx.destination);
+    o.start(); o.stop(audioCtx.currentTime + 0.06);
+  }
+  function cheer(){
+    if(muted || !audioCtx) return;
+    [523,659,784,1046].forEach((f,i)=>{
+      const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
+      o.frequency.value = f; o.type='triangle';
+      g.gain.setValueAtTime(0.001, audioCtx.currentTime + i*0.09);
+      g.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + i*0.09 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + i*0.09 + 0.4);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(audioCtx.currentTime + i*0.09); o.stop(audioCtx.currentTime + i*0.09 + 0.4);
+    });
+  }
+
+  /* ---------------- CONFETTI ---------------- */
+  function fireConfetti(){
+    if(!confettiOn) return;
+    const area = document.getElementById('wheelArea');
+    confettiCanvas.width = area.clientWidth + 80;
+    confettiCanvas.height = area.clientHeight + 80;
+    const particles = [];
+    for(let i=0;i<90;i++){
+      particles.push({
+        x: confettiCanvas.width/2, y: confettiCanvas.height/2 - 60,
+        vx: (Math.random()-0.5)*9, vy: Math.random()*-7 - 2,
+        size: Math.random()*6+4, color: PALETTE[i%PALETTE.length],
+        rot: Math.random()*Math.PI, vr: (Math.random()-0.5)*0.3, life: 0
+      });
+    }
+    let frame = 0;
+    (function step(){
+      frame++;
+      cctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+      particles.forEach(p=>{
+        p.vy += 0.22; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life++;
+        cctx.save(); cctx.translate(p.x,p.y); cctx.rotate(p.rot);
+        cctx.fillStyle = p.color; cctx.globalAlpha = Math.max(0, 1 - p.life/90);
+        cctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*0.6);
+        cctx.restore();
+      });
+      if(frame < 95) requestAnimationFrame(step); else cctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+    })();
+  }
+
+  /* ---------------- SPIN LOGIC ---------------- */
+  function pickWinnerIndex(){
+    const tw = totalWeight();
+    let r = Math.random() * tw;
+    for(let i=0;i<options.length;i++){
+      const w = weighted ? (options[i].weight||1) : 1;
+      if(r < w) return i;
+      r -= w;
+    }
+    return options.length - 1;
+  }
+
+  function angleForIndex(idx){
+    const tw = totalWeight();
+    let start = 0;
+    for(let i=0;i<idx;i++){ start += (weighted ? (options[i].weight||1) : 1) / tw * Math.PI*2; }
+    const seg = (weighted ? (options[idx].weight||1) : 1) / tw * Math.PI*2;
+    return start + seg/2;
+  }
+
+  function easeOutCubic(t){ return 1 - Math.pow(1-t,3); }
+  function easeOutQuint(t){ return 1 - Math.pow(1-t,5); }
+
+  function spin(){
+    if(spinning || options.length < 2) return;
+    ensureAudio();
+    spinning = true;
+    spinBtn.disabled = true;
+
+    const winnerIdx = pickWinnerIndex();
+    const targetSegAngle = angleForIndex(winnerIdx);
+    // pointer is at top (-PI/2 in unrotated frame, but our drawing starts at -PI/2 already as 0 offset)
+    // We want final rotation such that targetSegAngle aligns under pointer (top, i.e. -PI/2 world angle == 0 after our -90deg baked in draw)
+    const extraSpins = 5 + Math.floor(Math.random()*3); // 5-7 full turns
+    const finalRotation = rotation + Math.PI*2*extraSpins + ( -targetSegAngle ) - (rotation % (Math.PI*2));
+    const startRotation = rotation;
+    const delta = (Math.PI*2*extraSpins) - targetSegAngle - (startRotation % (Math.PI*2)) + Math.PI*2; // ensure positive
+
+    const duration = spinDuration;
+    const startTime = performance.now();
+    let lastTickSlice = -1;
+    const segCountForTick = options.length;
+
+    function frame(now){
+      const elapsed = now - startTime;
+      const p = Math.min(1, elapsed/duration);
+      const eased = easeOutQuint(p);
+      rotation = startRotation + delta * eased;
+      drawWheel(rotation);
+
+      const sliceSize = (Math.PI*2)/Math.max(1,segCountForTick);
+      const sliceIdx = Math.floor((rotation % (Math.PI*2)) / sliceSize);
+      if(sliceIdx !== lastTickSlice){
+        lastTickSlice = sliceIdx;
+        tick();
+        pointerFlap.classList.remove('tick'); void pointerFlap.offsetWidth; pointerFlap.classList.add('tick');
+      }
+
+      if(p < 1){ requestAnimationFrame(frame); }
+      else{
+        spinning = false; spinBtn.disabled = false;
+        showResult(winnerIdx);
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function showResult(idx){
+    const winner = options[idx];
+    resultText.textContent = winner.label;
+    resultModal.classList.add('show');
+    cheer();
+    fireConfetti();
+    if(removeAfterSpin && options.length > 2){
+      options = options.filter(o=>o.id !== winner.id);
+      persistOptions(); renderOptionList();
+    }
+  }
+
+  spinBtn.addEventListener('click', spin);
+  document.addEventListener('keydown', (e)=>{
+    if(e.code === 'Space' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA'){
+      e.preventDefault(); spin();
+    }
+  });
+  spinAgainBtn.addEventListener('click', ()=>{ resultModal.classList.remove('show'); spin(); });
+  closeModalBtn.addEventListener('click', ()=> resultModal.classList.remove('show'));
+  copyResultBtn.addEventListener('click', ()=>{
+    navigator.clipboard && navigator.clipboard.writeText(resultText.textContent).catch(()=>{});
+    copyResultBtn.textContent = 'Copied!'; setTimeout(()=> copyResultBtn.textContent = 'Copy result', 1400);
+  });
+
+  /* ---------------- SHARE / EMBED / DOWNLOAD ---------------- */
+  function encodeWheel(){
+    const payload = options.map(o=>({l:o.label,c:o.color,w:o.weight||1}));
+    return btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+  function decodeWheel(str){
+    try{
+      const arr = JSON.parse(decodeURIComponent(atob(str)));
+      return arr.map(o=>({id:cryptoId(), label:o.l, color:o.c, weight:o.w||1}));
+    }catch(e){ return null; }
+  }
+
+  shareBtn.addEventListener('click', ()=>{
+    const url = location.origin + location.pathname + '?w=' + encodeWheel();
+    navigator.clipboard && navigator.clipboard.writeText(url).catch(()=>{});
+    shareBtn.textContent = '✔ Link copied'; setTimeout(()=> shareBtn.textContent = '🔗 Share link', 1600);
+  });
+
+  downloadBtn.addEventListener('click', ()=>{
+    const link = document.createElement('a');
+    link.download = 'woowheel.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  });
+
+  resetBtn.addEventListener('click', ()=>{
+    if(!confirm('Reset to the default wheel? This clears your current options.')) return;
+    options = defaultOptions(); rotation = 0;
+    persistOptions(); renderOptionList(); drawWheel();
+  });
+
+  embedBtn.addEventListener('click', ()=>{
+    const url = location.origin + location.pathname + '?w=' + encodeWheel();
+    embedCode.textContent = '<iframe src="'+url+'" width="420" height="620" style="border:0;border-radius:16px;" title="WooWheel spin wheel"></iframe>';
+    embedModal.classList.add('show');
+  });
+  copyEmbedBtn.addEventListener('click', ()=>{
+    navigator.clipboard && navigator.clipboard.writeText(embedCode.textContent).catch(()=>{});
+    copyEmbedBtn.textContent = 'Copied!'; setTimeout(()=> copyEmbedBtn.textContent = 'Copy code', 1400);
+  });
+  closeEmbedBtn.addEventListener('click', ()=> embedModal.classList.remove('show'));
+
+  [resultModal, embedModal].forEach(m=> m.addEventListener('click', (e)=>{ if(e.target===m) m.classList.remove('show'); }));
+
+  /* ---------------- SAVE / LOAD PRESETS ---------------- */
+  function getPresets(){ return load('woowheel_presets', []); }
+  function renderSavedList(){
+    const presets = getPresets();
+    savedList.innerHTML = '';
+    if(presets.length === 0){
+      savedList.innerHTML = '<div style="color:var(--text-faint);font-size:.8rem;">No saved wheels yet.</div>';
+      return;
+    }
+    presets.forEach((p, i)=>{
+      const row = document.createElement('div'); row.className = 'saved-item';
+      const nameSpan = document.createElement('span'); nameSpan.className = 'load-name'; nameSpan.textContent = p.name;
+      nameSpan.addEventListener('click', ()=>{
+        options = p.options.map(o=>({...o, id:cryptoId()}));
+        persistOptions(); renderOptionList(); drawWheel();
+      });
+      const delBtn = document.createElement('button'); delBtn.textContent = '×'; delBtn.setAttribute('aria-label','Delete saved wheel '+p.name);
+      delBtn.addEventListener('click', ()=>{
+        const arr = getPresets(); arr.splice(i,1); save('woowheel_presets', arr); renderSavedList();
+      });
+      row.appendChild(nameSpan); row.appendChild(delBtn);
+      savedList.appendChild(row);
+    });
+  }
+  saveWheelBtn.addEventListener('click', ()=>{
+    const name = saveNameInput.value.trim();
+    if(!name) return;
+    const arr = getPresets();
+    arr.push({name, options});
+    save('woowheel_presets', arr);
+    saveNameInput.value = '';
+    renderSavedList();
+  });
+
+  /* ---------------- FULLSCREEN PRESENT MODE ---------------- */
+  fullscreenBtn.addEventListener('click', ()=>{
+    stageEl.classList.toggle('fullscreen-mode');
+    if(stageEl.classList.contains('fullscreen-mode')){
+      const exit = document.createElement('button');
+      exit.className = 'icon-btn fs-exit'; exit.textContent = '✕'; exit.id = 'fsExitBtn';
+      exit.addEventListener('click', ()=>{ stageEl.classList.remove('fullscreen-mode'); exit.remove(); });
+      document.body.appendChild(exit);
+    } else {
+      const ex = document.getElementById('fsExitBtn'); if(ex) ex.remove();
+    }
+  });
+
+  /* ---------------- FAQ ACCORDION ---------------- */
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q'); const a = item.querySelector('.faq-a');
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+      if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  /* ---------------- INIT ---------------- */
+  const params = new URLSearchParams(location.search);
+  if(params.get('w')){
+    const decoded = decodeWheel(params.get('w'));
+    if(decoded && decoded.length >= 2) options = decoded;
+  }
+  renderOptionList();
+  renderSavedList();
+  drawWheel();
+  startIdleGlow();
+
+  window.addEventListener('resize', ()=> drawWheel());
+})();
+</script>
+</body>
+</html>
