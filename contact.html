@@ -2,10 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>try{var t=JSON.parse(localStorage.getItem("woowheel_theme")||'"light"');document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact WooWheel – Questions, Feedback & Support</title>
 <meta name="description" content="Get in touch with the WooWheel team for questions, feedback, bug reports, or partnership enquiries about our free online spin wheel tool.">
 <link rel="canonical" href="https://woowheel.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact WooWheel – Questions, Feedback & Support">
+<meta property="og:description" content="Get in touch with the WooWheel team for questions, feedback, bug reports, or partnership enquiries.">
+<meta property="og:url" content="https://woowheel.com/contact.html">
+<meta property="og:site_name" content="WooWheel">
+<meta property="og:image" content="https://woowheel.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://woowheel.com/og-image.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#150E29">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +44,10 @@
 
 <nav class="site-nav">
   <a class="brand" href="index.html"><span class="brand-dot"></span><span class="brand-word">WooWheel</span></a>
-  <a class="nav-back" href="index.html">← Back to the wheel</a>
+    <div class="nav-actions">
+    <a class="nav-back" href="index.html">← Back to the wheel</a>
+    <button class="icon-btn" id="themeBtn" title="Toggle light/dark" aria-label="Toggle theme">☀️</button>
+  </div>
 </nav>
 
 <main class="wrap">
@@ -92,8 +109,27 @@
       <a href="contact.html">Contact</a>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
+      <a href="wheel-of-names.html">Wheel of Names</a>
+      <a href="yes-or-no-wheel.html">Yes/No Wheel</a>
+      <a href="raffle-wheel.html">Raffle Wheel</a>
+      <a href="decision-wheel.html">Decision Wheel</a>
+      <a href="random-number-wheel.html">Number Wheel</a>
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  function load(k,f){ try{ var v=localStorage.getItem(k); return v===null?f:JSON.parse(v); }catch(e){ return f; } }
+  function save(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+  var theme = load('woowheel_theme','light');
+  var btn = document.getElementById('themeBtn');
+  function apply(){
+    document.documentElement.setAttribute('data-theme', theme);
+    if(btn) btn.textContent = theme === 'dark' ? '\ud83c\udf19' : '\u2600\ufe0f';
+  }
+  apply();
+  if(btn){ btn.addEventListener('click', function(){ theme = theme==='dark'?'light':'dark'; save('woowheel_theme', theme); apply(); }); }
+})();
+</script>
 </body>
 </html>
