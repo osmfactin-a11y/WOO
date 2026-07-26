@@ -74,7 +74,7 @@
     <section style="margin-top:36px;">
       <div class="card">
         <h2 style="margin-bottom:16px;">Send a message</h2>
-        <form class="contact-form" action="mailto:hello@woowheel.com" method="post" enctype="text/plain">
+        <form class="contact-form" id="cfForm" action="mailto:hello@woowheel.com" method="post" enctype="text/plain">
           <div>
             <label for="cf-name">Your name</label>
             <input type="text" id="cf-name" name="name" required>
@@ -92,7 +92,7 @@
             <textarea id="cf-message" name="message" required></textarea>
           </div>
           <button type="submit">Send message</button>
-          <p class="form-note">This opens your email app with the details filled in — we don't store anything you type here.</p>
+          <p class="form-note" id="cfNote">This opens your email app with the details filled in — we don't store anything you type here.</p>
         </form>
       </div>
     </section>
@@ -129,6 +129,26 @@
   }
   apply();
   if(btn){ btn.addEventListener('click', function(){ theme = theme==='dark'?'light':'dark'; save('woowheel_theme', theme); apply(); }); }
+})();
+</script>
+<script>
+(function(){
+  var form = document.getElementById('cfForm');
+  var note = document.getElementById('cfNote');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cf-name').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var subject = document.getElementById('cf-subject').value.trim() || 'Message from woowheel.com';
+    var message = document.getElementById('cf-message').value.trim();
+    var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+    var mailto = 'mailto:hello@woowheel.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto;
+    if(note){
+      note.innerHTML = 'Opening your email app now. If nothing happens, email us directly at <a href="mailto:hello@woowheel.com">hello@woowheel.com</a>.';
+    }
+  });
 })();
 </script>
 </body>
